@@ -284,23 +284,15 @@ void studentsStruct::save()
 // Check if the "studentsdb.txt" is available and load the data as needed
 void studentsStruct::retrieve()
 {
-
     ifstream fp;
     string n;
     int ax, by, cz;
 
     fp.open("studentsdb.txt");
 
-    if (fp.peek() != std::ifstream::traits_type::eof())
+    while (fp >> n >> ax >> by >> cz)
     {
-        while (fp >> n >> ax >> by >> cz)
-        {
-            add(n, ax, by, cz);
-        }
-    }
-    else
-    {
-        cout << "File is available but its empty" << endl;
+        add(n, ax, by, cz);
     }
 
     fp.close();

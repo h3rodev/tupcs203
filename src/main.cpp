@@ -58,7 +58,7 @@ int main()
 		switch (menu())
 		{
 		case 1:
-			system("clear");
+			system("cls");
 			cout << "Insert Mode" << endl;
 			cout << "Name: ";
 			cin >> nm;
@@ -71,14 +71,14 @@ int main()
 			ars.add(nm, a, b, c);
 			break;
 		case 2:
-			system("clear");
+			system("cls");
 			cout << "Update Mode" << endl;
 			cout << "Input Students Name: ";
 			cin >> nm;
 			ars.update(nm);
 			break;
 		case 3:
-			system("clear");
+			system("cls");
 			cout << "Delete Mode" << endl;
 			cout << "Enter Name: ";
 			cin >> nm;
@@ -237,7 +237,7 @@ void studentsStruct::display()
 	p = S;
 	float ave;
 	string remarks;
-	system("clear");
+	system("cls");
 	cout << "No.\tNAME\tQUIZ 1\tQUIZ 2\tQUIZ 3\tAVERAGE\tREMARKS\n";
 
 	while (p != NULL)
@@ -284,23 +284,15 @@ void studentsStruct::save()
 // Check if the "studentsdb.txt" is available and load the data as needed
 void studentsStruct::retrieve()
 {
-
 	ifstream fp;
 	string n;
 	int ax, by, cz;
 
 	fp.open("studentsdb.txt");
 
-	if (fp.peek() != std::ifstream::traits_type::eof())
+	while (fp >> n >> ax >> by >> cz)
 	{
-		while (fp >> n >> ax >> by >> cz)
-		{
-			add(n, ax, by, cz);
-		}
-	}
-	else
-	{
-		cout << "File is available but its empty" << endl;
+		add(n, ax, by, cz);
 	}
 
 	fp.close();
