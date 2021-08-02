@@ -1,5 +1,5 @@
-*.vscode
-*.DS_Store
+.vscode
+.DS_Store
 
 # Prerequisites
 *.d
@@ -32,4 +32,4 @@
 # Executables
 *.exe
 *.out
-*.app
+*.app.DS_Store
